@@ -1,4 +1,4 @@
-const CACHE = 'equus-v2.3-prod';
+const CACHE = 'equus-v2.4-prod';
 const ASSETS = ['./', './index.html', './app.css', './app.js', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()));
