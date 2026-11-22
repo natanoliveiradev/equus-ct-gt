@@ -5,7 +5,7 @@ const SUPA_URL='https://pnfaobdsffmnujturzyf.supabase.co';
 const SUPA_KEY='sb_publishable_ZolEvB6CM0y5MGn6ZFGf2g_oFwv3xPR';
 const _SMAP={healthRecords:'health_records',eventExpenses:'event_expenses'};
 const _tbl=s=>SUPA_URL+'/rest/v1/'+(_SMAP[s]||s);
-const _H={'Content-Type':'application/json',apikey:SUPA_KEY,Authorization:'Bearer '+SUPA_KEY};
+const _H={'Content-Type':'application/json',apikey:SUPA_KEY};
 const LOCAL_IDB={_db:null,open(){if(this._db)return Promise.resolve(this._db);return new Promise((res,rej)=>{const r=indexedDB.open('equus_ct',1);r.onupgradeneeded=e=>{const d=e.target.result;const mk=(n,k,idx=[])=>{if(d.objectStoreNames.contains(n))return;const s=d.createObjectStore(n,{keyPath:k});idx.forEach(([i,u])=>s.createIndex(i,i,{unique:!!u}))};mk('users','id',[['username',1]]);mk('settings','key');mk('owners','id',[['name']]);mk('animals','id',[['ownerId'],['type']]);mk('activities','id',[['animalId'],['date']]);mk('healthRecords','id',[['animalId']]);mk('charges','id',[['animalId'],['ownerId'],['dueDate']]);mk('payments','id',[['chargeId']]);mk('tasks','id',[['date'],['animalId']]);mk('notices','id')};r.onsuccess=e=>{this._db=e.target.result;this._db.onclose=()=>{this._db=null};res(this._db)};r.onerror=()=>rej(r.error)})},
 async getAll(store,idx,val){const d=await this.open();return new Promise((res,rej)=>{const tx=d.transaction(store,'readonly');const s=tx.objectStore(store);const r=idx&&val!==undefined?s.index(idx).getAll(val):s.getAll();r.onsuccess=()=>res(r.result||[]);r.onerror=()=>rej(r.error)})},
 async get(store,id){const d=await this.open();return new Promise((res,rej)=>{const tx=d.transaction(store,'readonly');const r=tx.objectStore(store).get(id);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})},
