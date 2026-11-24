@@ -258,7 +258,7 @@ textarea.field{height:auto;padding:12px;min-height:90px;resize:vertical;line-hei
 .modal-header h2{font-size:18px;margin:0;letter-spacing:-.4px}
 .modal-header p{font-size:11px;color:var(--muted);margin:5px 0 0}
 .modal-body{overflow:auto;padding:21px 24px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-.modal-footer{display:flex;justify-content:flex-end;gap:9px;padding:16px 24px;border-top:1px solid var(--border);background:#fafcf9}
+.modal-footer{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:9px;padding:16px 24px;border-top:1px solid var(--border);background:#fafcf9}
 .modal .alert-card{margin-top:15px}
 .modal .form-grid{gap:13px}
 
@@ -362,6 +362,7 @@ textarea.field{height:auto;padding:12px;min-height:90px;resize:vertical;line-hei
   .modal-header{padding-left:18px;padding-right:18px;border-radius:20px 20px 0 0}
   .modal-body{padding-left:18px;padding-right:18px;flex:1 1 auto;-webkit-overflow-scrolling:touch}
   .modal-footer{flex-shrink:0;padding:12px 18px calc(14px + env(safe-area-inset-bottom))}
+  .modal-footer .btn{flex:1 1 140px;justify-content:center}
   .tabs .tab{padding:10px 12px}
   .setting-row{align-items:flex-start}
   .settings-panel{padding:17px}
@@ -376,3 +377,39 @@ textarea.field{height:auto;padding:12px;min-height:90px;resize:vertical;line-hei
 .media-item-actions{position:absolute;top:6px;right:6px;display:flex;gap:4px}
 .media-caption{font-size:11px;padding:5px 8px;color:var(--muted);background:var(--pale)}
 @media(max-width:600px){.media-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}}
+/* COMPETITIONS */
+.event-card{padding:14px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.event-info{flex:1;min-width:0}
+.event-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.event-title strong{font-size:15px}
+.event-meta{font-size:12px;color:var(--muted);margin-bottom:5px}
+.event-row{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.event-actions{display:flex;align-items:center;gap:6px;flex-shrink:0}
+@media(max-width:600px){.event-card{flex-direction:column;gap:10px}.event-actions{align-self:flex-end}.kpis.comp-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* FREIO DE OURO */
+.fo-phase{background:var(--card,#fff);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden}
+.fo-phase-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--pale);border-bottom:1px solid var(--border)}
+.fo-phase-header strong{font-size:14px}
+.fo-phase-score{font-size:13px;color:var(--muted)}
+.fo-phase-score b{color:var(--text);font-size:16px;font-weight:700}
+.fo-movement{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;border-bottom:1px solid var(--border,#eee);gap:8px}
+.fo-movement:last-child{border-bottom:none}
+.fo-move-label{font-size:12px;min-width:110px;flex-shrink:0;color:var(--text)}
+.fo-judges{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.fo-judge-col{display:flex;flex-direction:column;align-items:center;gap:2px}
+.fo-judge-col label{font-size:10px;color:var(--muted);text-transform:uppercase;font-weight:600;line-height:1}
+.fo-input{width:62px;text-align:center;padding:5px 4px;font-size:13px}
+.fo-avg{font-size:13px;font-weight:700;min-width:46px;text-align:center;color:var(--green-mid,#4c8063);line-height:1}
+.fo-corrida{padding:4px 0;border-bottom:1px solid var(--border,#eee)}
+.fo-corrida:last-child{border-bottom:none}
+.fo-corrida-label{font-size:11px;font-weight:700;color:var(--muted);padding:6px 14px 2px;text-transform:uppercase;letter-spacing:.5px}
+.fo-corrida-total{background:var(--pale);justify-content:flex-end;gap:8px}
+.fo-summary{background:var(--pale);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-top:12px}
+.fo-summary-row{display:flex;justify-content:space-between;padding:4px 0;font-size:13px;border-bottom:1px solid var(--border)}
+.fo-summary-row:last-child{border-bottom:none;font-weight:700;font-size:15px;padding-top:8px}
+@media(max-width:600px){.fo-move-label{min-width:80px;font-size:11px}.fo-input{width:50px;font-size:12px}.fo-judges{gap:5px}}
+/* LOGO DO CENTRO */
+.brand-emblem img{width:100%;height:100%;object-fit:contain;padding:3px;border-radius:11px}
+.brand-emblem.has-logo{background:#fff;border-color:rgba(214,181,126,.45)}
+.logo-thumb{border-radius:14px!important;background:#fff}
+.logo-thumb img{object-fit:contain!important;padding:6px}
